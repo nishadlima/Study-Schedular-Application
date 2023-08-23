@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".addClassActivity"
+    android:background="@color/bg">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/navbarGrey"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/subjectTIlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_marginTop="25dp"
+        android:layout_marginHorizontal="10dp"
+        app:errorEnabled="true"
+        android:hint="@string/pick_a_subject">
+
+<!--        TODO: Theme the text view-->
+        <AutoCompleteTextView
+            android:id="@+id/SubjectautoCompleteListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="text"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/addSubject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_a_new_subject"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="2dp"
+        android:padding="5dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_gravity="end"
+        android:textColor="@color/white"
+        app:icon="@drawable/baseline_add_white_24dp"
+        app:iconTint="@color/red_active"
+        app:rippleColor="#3D3D3D"
+        />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dayTIlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_marginTop="25dp"
+        android:layout_marginHorizontal="10dp"
+        android:hint="@string/pick_a_day">
+
+        <!--        TODO: Theme the text view-->
+        <AutoCompleteTextView
+            android:id="@+id/daysAutoCompleteListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:errorEnabled="true"
+            android:inputType="none"            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="25dp"
+        android:weightSum="2"
+        android:baselineAligned="false">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/startTimeTIlayout"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:hint="@string/start_time"
+            app:errorEnabled="true"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginHorizontal="10dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/startTime"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:inputType="time"
+                android:textIsSelectable="false"
+                android:focusable="false"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/endTimeTIlayout"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:hint="@string/end_time"
+            app:errorEnabled="true"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginHorizontal="10dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/endTime"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:inputType="time"
+                android:textIsSelectable="false"
+                android:focusable="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:layout_marginTop="75dp"
+        android:gravity="bottom">
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/cancel"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_marginHorizontal="10dp"
+            android:textColor="@color/white"/>
+        <Button
+            android:id="@+id/add_class"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/add_class"
+            android:layout_marginHorizontal="10dp"
+            android:backgroundTint="@color/green_active"/>
+
+    </LinearLayout>
+</LinearLayout>

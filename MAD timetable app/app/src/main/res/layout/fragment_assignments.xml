@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.assignmentsFragment"
+    tools:background="@color/bg">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+<!--        Top bar -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/bottomNavBarMargin"
+            android:background="@color/bg"
+            app:cardCornerRadius="@dimen/cornerRadius"
+            android:elevation="25dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/navbarGrey"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/logo_full"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="@string/logo"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="@font/montserrat"
+                    android:text="@string/assignments"
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+<!--        End of top bar -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+<!--            TODO: Test the scroll view when there are a lot of values-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+<!--                Pending assignments card-->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="12dp"
+                    android:background="@drawable/rounded_rect_classes_layout"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:cardCornerRadius="10dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/rounded_rect_classes_layout"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="@drawable/rounded_rect_blue"
+                            android:padding="10dp"
+                            >
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Pending assignments"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"/>
+                            <TextView
+                                android:id="@+id/numberOfAssignments"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                tools:text="5 assignments"
+                                android:textColor="@color/white"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/RVlayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp">
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/assignmentsRV"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                tools:listitem="@layout/item_assignment"
+                                android:layout_marginTop="10dp"
+                                android:overScrollMode="never"
+                                />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+<!--                End of pending assignments card-->
+<!--                Submitted assignements card-->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/submittedAssignmentsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="12dp"
+                    android:background="@drawable/rounded_rect_classes_layout"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:cardCornerRadius="6dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/rounded_rect_classes_layout"
+                        android:padding="10dp"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/submmittedAssignmentsText"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:text="Submitted assignments"
+                                android:textColor="@color/white"
+                                android:textStyle="bold"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"/>
+                            <ImageButton
+                                android:id="@+id/submittedDropDown"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:background="?actionBarItemBackground"
+                                android:src="@drawable/baseline_keyboard_arrow_down_black_24dp"
+                                android:layout_gravity="center"
+                                app:tint="@color/white" />
+                        </LinearLayout>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/submittedAssignmentsRV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:listitem="@layout/item_assignment"
+                            android:layout_marginTop="10dp"
+                            android:visibility="gone"
+                            tools:visibility="visible"
+                            android:overScrollMode="never"/>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <!--                End of submitted assignments cards-->
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_assignment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/baseline_add_task_white_24dp"
+        app:fabSize="auto"
+        app:backgroundTint="@color/selectedBlue"
+        app:tint="@color/white"
+        android:transitionName="addAssignmentTransition"
+         />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

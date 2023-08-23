@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/page_assignments"
+        android:icon="@drawable/icon_assignment"
+        android:title="Assignments" />
+    <item
+        android:id="@+id/page_timetable"
+        android:title="Timetable"
+        android:icon="@drawable/timetable_icon">
+
+    </item>
+</menu>
